@@ -1,0 +1,27 @@
+{% extends 'OtroMundoApp/base.html' %}
+
+{% block clientes %}
+<div class="container text-center mt-2">
+    <h1>Listado Clientes</h1>
+</div>
+<div id="clientes" class="container text-center">
+    <div class="row row-cols-1 row-cols-md-3 d-flex">
+        {% for cliente in clientes %}
+        <div class="col mb-4 d-flex">
+            <div class="card flex-fill">
+                <div class="card-body">
+                    <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}}</h5>
+                    <p class="card-text">{{cliente.email}}</p>
+                    <p class="card-text">{{cliente.pais}}</p>
+                    <p class="card-text">{{cliente.edad}} años</p>
+                    <p class="card-text">{{cliente.hobby}}</p>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+    </div><div class="row row-cols-1 row-cols-md-3 d-flex">
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
