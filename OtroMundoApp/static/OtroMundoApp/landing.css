@@ -30,7 +30,6 @@ body {
     }
 }
 
-
 .card {
     transition: transform 0.3s;
 }
@@ -45,4 +44,8 @@ body {
 
 #clientes {
     margin-top: 20vh;
+}
+
+.container {
+    margin-top: 10vh;
 }

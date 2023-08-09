@@ -1,0 +1,13 @@
+{% extends 'OtroMundoApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block registro %}
+<div class="container">
+    <h2>Formulario de registro</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form_cliente|crispy}}
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
