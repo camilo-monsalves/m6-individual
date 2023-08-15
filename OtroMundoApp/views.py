@@ -6,6 +6,7 @@ from .models import Cliente
 # forms |
 from .forms import ClienteForm
 
+
 # Create your views here.
 
 def landing(request):

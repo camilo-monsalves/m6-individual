@@ -2,8 +2,8 @@
 {% load crispy_forms_tags %}
 
 {% block registro %}
-<div class="container">
-    <h2>Formulario de registro</h2>
+<div class="container w-50">
+    <h2>Registrar Cliente</h2>
     <form method="post">
         {% csrf_token %}
         {{form_cliente|crispy}}

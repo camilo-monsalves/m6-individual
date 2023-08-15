@@ -1,0 +1,23 @@
+{% extends 'OtroMundoApp/base.html' %}
+{% load crispy_forms_tags %}
+{% block usuario %}
+<div class="container w-50">
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Únete hoy !</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary mb-2" type="submit">Regístrate</button>
+            </div>
+        </form>
+        <div class="pt-3">
+            <small>
+                Ya tienes una cuenta? <a id="link-login" class="ml-2" href="{% url 'login-usuario' %}">Inicia Sesión</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

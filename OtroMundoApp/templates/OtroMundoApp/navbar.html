@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark static-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'inicio' %}">Bienvenidos</a>
+        <a class="navbar-brand" href="{% url 'inicio' %}">Bienvenido {{user.username}}</a>
         <button class="navbar-toggler" type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasDarkNavbar"
@@ -8,7 +8,7 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1"
+        <div class="offcanvas offcanvas-end text-bg-dark positon-fixed" tabindex="-1"
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel">
             <div class="offcanvas-header">
@@ -32,15 +32,14 @@
                             Ver más
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="{% url 'registro' %}">Registro Cliente</a></li>
-                            <li><a class="dropdown-item" href="#">Another
-                                    action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something
-                                    else
-                                    here</a></li>
+                            <!-- si hay un usuario logeado, mostrar cerrar sesión -->
+                            {% if user.is_authenticated %}
+                                <li><a class="dropdown-item" href="{% url 'registro' %}">Registro Cliente</a></li>
+                                <li><a class="dropdown-item" href="{% url 'logout-usuario' %}">Cerrar Sesión</a></li>
+                            {% else %}
+                                <li><a class="dropdown-item" href="{% url 'login-usuario' %}">Inicia Sesión</a></li>
+                                <li><a class="dropdown-item" href="{% url 'registro-usuario' %}">Crea una cuenta</a></li>
+                            {% endif %}
                         </ul>
                     </li>
                 </ul>
