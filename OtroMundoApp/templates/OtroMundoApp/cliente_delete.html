@@ -1,0 +1,14 @@
+{% extends 'OtroMundoApp/base.html' %}
+{% load crispy_forms_tags %}
+{% block cliente_delete %} 
+    <div class="container">
+        <form method="POST" id="form-delete">
+            {% csrf_token %}
+            <h2>Eliminar cliente</h2>
+            <p class="form-buttons">¿Estás seguro de eliminar a {{cliente.nombre}} {{cliente.apellido}} ?
+                <input type="submit" class="btn btn-danger" value="Eliminar">
+                <a href="{% url 'cliente' %}" class="btn btn-outline-danger">Cancelar</a>
+            </p>
+        </form>
+    </div>
+{% endblock %}

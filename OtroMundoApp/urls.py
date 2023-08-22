@@ -6,4 +6,6 @@ urlpatterns = [
     path('', views.landing, name='inicio'),
     path('clientes/', views.cliente, name='cliente'),
     path('registro/', views.registro, name='registro'),
+    path('cliente/<int:pk>/update', views.UpdateClienteView.as_view(), name='cliente-update'), 
+    path('cliente/<int:pk>/delete', views.DeleteClienteView.as_view(), name='cliente-delete') 
 ]

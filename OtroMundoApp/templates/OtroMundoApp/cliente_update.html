@@ -1,0 +1,13 @@
+{% extends 'OtroMundoApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block cliente_update %}
+    <div class="container">
+        <form method="POST" id="form-update">
+            <h3>Actualizar datos de: {{cliente.nombre}} {{cliente.apellido}}</h1>
+            {% csrf_token %}
+            {{form | crispy}}   
+        <button type="submit" class="btn btn-primary mt-3">Actualizar Datos</button>
+        </form>
+    </div>
+{% endblock %}

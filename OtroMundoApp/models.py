@@ -10,7 +10,7 @@ class Cliente(models.Model):
     hobby = models.TextField()
 
     def __str__(self):
-        return self.nombre
+        return self.nombre + " " + self.apellido
     
     class Meta:
         verbose_name_plural = "Clientes"

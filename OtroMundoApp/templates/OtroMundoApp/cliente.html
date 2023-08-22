@@ -16,6 +16,12 @@
                     <p class="card-text">{{cliente.edad}} años</p>
                     <p class="card-text">{{cliente.hobby}}</p>
                 </div>
+                <div class="container align-content-center">
+                    <a class="btn btn-primary mb-2"
+                        href="{% url 'cliente-update' pk=cliente.id%}">Actualizar Cliente</a>
+                    <a class="btn btn-danger mb-2"
+                        href="{% url 'cliente-delete' pk=cliente.id%}">Eliminar Cliente</a>
+                </div>
             </div>
         </div>
         {% if forloop.counter|divisibleby:3 and not forloop.last %}

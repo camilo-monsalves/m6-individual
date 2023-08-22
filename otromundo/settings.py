@@ -74,10 +74,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'otromundo.urls'
 
+PROJECT_APP_PATH = os.path.dirname(os.path.abspath(__file__))
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +135,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = 'inicio'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -25,6 +25,7 @@ def registro_user(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, 'Cuenta creada con éxito !')
             return redirect('inicio')
         else:
             for error in list(form.errors.values()):
@@ -40,7 +41,7 @@ def registro_user(request):
 @login_required
 def logout_user(request):
     logout(request)
-    messages.success(request, f'Sesión finalizada correctamente')
+    messages.success(request, 'Sesión finalizada correctamente')
     return redirect('inicio')
 
 def login_user(request):
